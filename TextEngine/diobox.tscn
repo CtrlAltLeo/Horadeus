@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://TextEngine/dioTheme.tres" type="Theme" id=1]
 [ext_resource path="res://TextEngine/DioBox.png" type="Texture" id=2]
 [ext_resource path="res://TextEngine/diobox.gd" type="Script" id=3]
+[ext_resource path="res://TextEngine/choice.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/clickableObject.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 197.62, 91.4294 )
 
 [node name="diobox" type="Node2D"]
 script = ExtResource( 3 )
@@ -33,4 +38,20 @@ __meta__ = {
 [node name="canSeeTimer" type="Timer" parent="."]
 wait_time = 0.06
 one_shot = true
+
+[node name="choice" parent="." instance=ExtResource( 4 )]
+position = Vector2( 601.147, 388.266 )
+
+[node name="choice2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 601.098, 457.241 )
+
+[node name="choice3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 601.802, 526.634 )
+
+[node name="clickableObject" parent="." instance=ExtResource( 5 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="clickableObject"]
+position = Vector2( 240.443, 470.914 )
+shape = SubResource( 1 )
 [connection signal="timeout" from="canSeeTimer" to="." method="_on_canSeeTimer_timeout"]
+[connection signal="clicked" from="clickableObject" to="." method="_on_clickableObject_clicked"]
