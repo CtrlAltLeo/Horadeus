@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://TextEngine/dioTheme.tres" type="Theme" id=1]
+[ext_resource path="res://TextEngine/DioBox.png" type="Texture" id=2]
+[ext_resource path="res://TextEngine/diobox.gd" type="Script" id=3]
+
+[node name="diobox" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="textBox" type="Sprite" parent="."]
+position = Vector2( 240, 472 )
+scale = Vector2( 7, 7 )
+texture = ExtResource( 2 )
+
+[node name="text" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 49.1078
+margin_top = 382.464
+margin_right = 433.107
+margin_bottom = 562.464
+mouse_filter = 2
+theme = ExtResource( 1 )
+visible_characters = 0
+text = "This is the beginning of greatness. With this simple box, a creation, once pure idea, becomes something tangible."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="canSeeTimer" type="Timer" parent="."]
+wait_time = 0.06
+one_shot = true
+[connection signal="timeout" from="canSeeTimer" to="." method="_on_canSeeTimer_timeout"]
