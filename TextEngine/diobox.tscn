@@ -7,7 +7,7 @@
 [ext_resource path="res://UI/clickableObject.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 197.62, 91.4294 )
+extents = Vector2( 221.33, 108.28 )
 
 [node name="diobox" type="Node2D"]
 script = ExtResource( 3 )
@@ -40,13 +40,7 @@ wait_time = 0.06
 one_shot = true
 
 [node name="choice" parent="." instance=ExtResource( 4 )]
-position = Vector2( 601.147, 388.266 )
-
-[node name="choice2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 601.098, 457.241 )
-
-[node name="choice3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 601.802, 526.634 )
+position = Vector2( 600, 388.049 )
 
 [node name="clickableObject" parent="." instance=ExtResource( 5 )]
 

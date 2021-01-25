@@ -29,7 +29,7 @@ var choiceTriggers = []
 
 #The actual Choice Text
 #Choice Format When It Triggers:How Many there are:ChoiceText1-X:Corrisponding Choice Destination
-var choices = ["1:2:Yes:No:2:3","3:4:3:6"]
+var choices = ["0:3:Yes:No:Maybe:2:3:4","3:4:3:6"]
 
 func _ready():
 	
@@ -50,6 +50,8 @@ func _process(delta):
 		endOfLine = true
 	else:
 		endOfLine = false
+		
+
 	
 func IsLastLine():
 	if active + 1 < text.size() and !checkActiveAgainstEnd():
@@ -77,6 +79,8 @@ func nextPage():
 	emit_signal("nextPage",active)
 	textBoxText.text = text[active]
 	canSeeTimer.start()
+	
+	checkIfChoice()
 
 func _on_canSeeTimer_timeout():
 	if !endOfLine:
@@ -101,8 +105,35 @@ func initChoices():
 		
 func checkIfChoice():
 	for i in choiceTriggers:
-		if active == i:
+		if active == int(i):
 			isAChoice = true
+			setupChoiceBoxes()
+			
+func setupChoiceBoxes():
+	var staticRank = int(choiceTriggers.find(str(active)))
+	#Split Choice Zero is when it's active
+	#Split Choice One is the number of Choices in the Choice Datapack
+	
+	var splitChoice = choices[staticRank].split(":")
+	
+	var choiceText = []
+	var choiceDes = []
+	
+	for i in int(splitChoice[1]):
+		choiceText.append(splitChoice[2+i])
+		
+		choiceDes.append(splitChoice[ 2 + int(splitChoice[1]) + i ])
+		
+	print(choiceText)	
+	print(choiceDes)
+
+	
+
+	
+	
+	
+	
+	
 		
 				
 		
