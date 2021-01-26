@@ -40,7 +40,7 @@ wait_time = 0.06
 one_shot = true
 
 [node name="choice" parent="." instance=ExtResource( 4 )]
-position = Vector2( 600, 388.049 )
+position = Vector2( 600, 388 )
 
 [node name="clickableObject" parent="." instance=ExtResource( 5 )]
 

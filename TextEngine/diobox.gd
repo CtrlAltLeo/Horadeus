@@ -29,7 +29,7 @@ var choiceTriggers = []
 
 #The actual Choice Text
 #Choice Format When It Triggers:How Many there are:ChoiceText1-X:Corrisponding Choice Destination
-var choices = ["0:3:Yes:No:Maybe:2:3:4","3:4:3:6"]
+var choices = []
 
 func _ready():
 	
@@ -110,22 +110,32 @@ func checkIfChoice():
 			setupChoiceBoxes()
 			
 func setupChoiceBoxes():
+	var choiceBox = "res://TextEngine/choice.tscn"
+	
 	var staticRank = int(choiceTriggers.find(str(active)))
 	#Split Choice Zero is when it's active
 	#Split Choice One is the number of Choices in the Choice Datapack
 	
 	var splitChoice = choices[staticRank].split(":")
+	var numberOfChoices = int(splitChoice[1])
 	
 	var choiceText = []
 	var choiceDes = []
 	
-	for i in int(splitChoice[1]):
+	for i in numberOfChoices:
 		choiceText.append(splitChoice[2+i])
 		
-		choiceDes.append(splitChoice[ 2 + int(splitChoice[1]) + i ])
+		choiceDes.append(splitChoice[ 2 + numberOfChoices + i ])
 		
 	print(choiceText)	
 	print(choiceDes)
+	
+	for i in numberOfChoices:
+		var nBox = choiceBox.instance()
+		nBox.text = choiceText[i]
+		nBox.des = choiceDes[i]
+		
+	
 
 	
 
