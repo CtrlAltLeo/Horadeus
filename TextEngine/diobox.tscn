@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://TextEngine/dioTheme.tres" type="Theme" id=1]
 [ext_resource path="res://TextEngine/DioBox.png" type="Texture" id=2]
 [ext_resource path="res://TextEngine/diobox.gd" type="Script" id=3]
-[ext_resource path="res://TextEngine/choice.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/clickableObject.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -38,9 +37,6 @@ __meta__ = {
 [node name="canSeeTimer" type="Timer" parent="."]
 wait_time = 0.06
 one_shot = true
-
-[node name="choice" parent="." instance=ExtResource( 4 )]
-position = Vector2( 600, 388 )
 
 [node name="clickableObject" parent="." instance=ExtResource( 5 )]
 
