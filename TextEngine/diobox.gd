@@ -29,7 +29,7 @@ var choiceTriggers = []
 
 #The actual Choice Text
 #Choice Format When It Triggers:How Many there are:ChoiceText1-X:Corrisponding Choice Destination
-var choices = ["0:6:a:b:c:d:e:f:1:1:1:1:1:1"]
+var choices = ["0:2:Click Me: No, click me:1:2"]
 
 func _ready():
 	
@@ -135,20 +135,33 @@ func setupChoiceBoxes():
 		nBox.text = choiceText[i]
 		nBox.des = choiceDes[i]
 		
-		nBox.connect("clicked",self, "ChoiceClicked")
+		nBox.connect("clicked",self, "FlipToPage")
 		
 		if i < 3:
 			nBox.position = Vector2(600, 388 + (i * 75))
 		else:
 			nBox.position = Vector2(875, 388 +( abs(i/2) * 75 ))
-		self.add_child(nBox)
+		
+		$Choices.add_child(nBox)
 		
 	
-func ChoiceClicked(des):
-	print(des)
-	
-	
 
+
+func FlipToPage(page):
+	isAChoice = false
+	canSee = 0
+	endOfLine = false
+	active = int(page)
+	emit_signal("nextPage",active)
+	textBoxText.text = text[active]
+	canSeeTimer.start()
+	
+	checkIfChoice()
+	
+	for i in $Choices.get_child_count():
+		$Choices.get_child(i).queue_free()
+		
+	
 	
 	
 	
