@@ -145,8 +145,6 @@ func setupChoiceBoxes():
 		$Choices.add_child(nBox)
 		
 	
-
-
 func FlipToPage(page):
 	isAChoice = false
 	canSee = 0
@@ -167,6 +165,4 @@ func FlipToPage(page):
 	
 	
 	
-		
-				
-		
+
