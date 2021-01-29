@@ -28,7 +28,7 @@ func _process(delta):
 	TargetPos = get_parent().get_child(1).translation
 	
 	
-	if TargetPos.z < self.translation.z and (TargetPos.x > translation.x - 3 and TargetPos.x < translation.x + 3 ):
+	if TargetPos.z < self.translation.z and (TargetPos.x > translation.x - 5 and TargetPos.x < translation.x + 5 ):
 		print("Front")
 		animation = "front"
 		flip_h = false

@@ -118,7 +118,7 @@ transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, -0.134237 )
 billboard = 2
 frames = SubResource( 19 )
 animation = "front"
-frame = 5
+frame = 2
 playing = true
 script = ExtResource( 2 )
 
