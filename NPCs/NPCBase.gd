@@ -1,6 +1,6 @@
 extends AnimatedSprite3D
 
-onready var TargetPos = get_parent().get_child(0).translation
+onready var TargetPos = get_parent().get_child(1).translation
 
 var NW = Vector3(-1,0,-1)
 
@@ -22,10 +22,27 @@ func _ready():
 	
 	print(TargetPos)
 	
-	if TargetPos.z < self.translation.z and (TargetPos.x > translation.x - 5 and TargetPos.x < translation.x + 5 ):
+	
+		
+func _process(delta):
+	TargetPos = get_parent().get_child(1).translation
+	
+	
+	if TargetPos.z < self.translation.z and (TargetPos.x > translation.x - 3 and TargetPos.x < translation.x + 3 ):
 		print("Front")
-	if TargetPos.z > self.translation.z:
+		animation = "front"
+		flip_h = false
+		
+	if TargetPos.z > self.translation.z  and (TargetPos.x > translation.x - 5 and TargetPos.x < translation.x + 5 ):
 		print("Back")
+		animation = "back"
+		flip_h = false
 		
 	if TargetPos.x > translation.x + buffer:
-		print("side")
+		print("Side")
+		animation = "side"
+		flip_h = false
+		
+	if TargetPos.x < translation.x - buffer:
+		animation = "side"
+		flip_h = true
