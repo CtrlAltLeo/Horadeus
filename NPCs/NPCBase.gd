@@ -28,21 +28,29 @@ func _process(delta):
 	TargetPos = get_parent().get_child(1).translation
 	
 	
-	if TargetPos.z < self.translation.z and (TargetPos.x > translation.x - 5 and TargetPos.x < translation.x + 5 ):
-		print("Front")
-		animation = "front"
+	if TargetPos.z < self.translation.z -buffer and (TargetPos.x > self.translation.x):
+		
+		animation = "frontQuarterRight"
+		flip_h = false
+		
+	if TargetPos.z < self.translation.z -buffer and (TargetPos.x < self.translation.x):
+		print("oopsies")
+		animation = "frontQuarterLeft"
 		flip_h = false
 		
 	if TargetPos.z > self.translation.z  and (TargetPos.x > translation.x - 5 and TargetPos.x < translation.x + 5 ):
-		print("Back")
+		
 		animation = "back"
 		flip_h = false
 		
-	if TargetPos.x > translation.x + buffer:
+	if TargetPos.x > translation.x and (TargetPos.z > translation.z - buffer and TargetPos.z < translation.z + buffer) :
 		print("Side")
 		animation = "side"
 		flip_h = false
 		
-	if TargetPos.x < translation.x - buffer:
+		
+	if TargetPos.x < translation.x and (TargetPos.z > self.translation.z - buffer and TargetPos.z < self.translation.z + buffer ):
+		print("Side")
 		animation = "side"
-		flip_h = true
+		flip_h = true	
+		
