@@ -5,7 +5,7 @@ signal nextPage(active)
 
 
 #array containing all the text. Set up when a new Diobox is made
-var text = ["Dang, daniel.","I've already got a basic text engine","adding choices is next!"]
+var text = ["This is a text","And this is a choice!","You pressed choice one. Bye!","You pressed Choice 2. Bye!"]
 onready var textBox = $textBox
 onready var textBoxText = $text
 
@@ -20,7 +20,7 @@ var canSee = 0
 onready var canSeeTimer = $canSeeTimer
 
 #All lines of text that will terminate the box
-var ends = []
+var ends = [2,3]
 
 #If active is a choice
 var isAChoice = false
@@ -29,7 +29,7 @@ var choiceTriggers = []
 
 #The actual Choice Text
 #Choice Format When It Triggers:How Many there are:ChoiceText1-X:Corrisponding Choice Destination
-var choices = ["0:2:Click Me: No, click me:1:2"]
+var choices = ["1:2:Choice one:Choice 2:2:3"]
 
 func _ready():
 	

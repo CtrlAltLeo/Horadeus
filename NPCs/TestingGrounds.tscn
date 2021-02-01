@@ -7,7 +7,7 @@
 
 [node name="NPCBase" parent="." instance=ExtResource( 1 )]
 transform = Transform( 25, 0, 0, 0, 25, 0, 0, 0, 25, 0, 0, 9.02384 )
-frame = 1
+frame = 4
 
 [node name="Spatial" parent="." instance=ExtResource( 2 )]
 transform = Transform( -0.99446, 0, -0.105119, 0, 1, 0, 0.105119, 0, -0.99446, -0.0427094, 0, -5.65114 )
