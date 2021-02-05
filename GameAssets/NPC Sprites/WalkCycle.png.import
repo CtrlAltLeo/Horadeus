@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/WalkCycle.png-a44a6e3f85d1ac5cf2ed130c02e08e9b.s3tc.stex"
-path.etc2="res://.import/WalkCycle.png-a44a6e3f85d1ac5cf2ed130c02e08e9b.etc2.stex"
+path.s3tc="res://.import/WalkCycle.png-0caa485296d01a5f4f2f09f72b79e56d.s3tc.stex"
+path.etc2="res://.import/WalkCycle.png-0caa485296d01a5f4f2f09f72b79e56d.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://NPCs/WalkCycle.png"
-dest_files=[ "res://.import/WalkCycle.png-a44a6e3f85d1ac5cf2ed130c02e08e9b.s3tc.stex", "res://.import/WalkCycle.png-a44a6e3f85d1ac5cf2ed130c02e08e9b.etc2.stex" ]
+source_file="res://GameAssets/NPC Sprites/WalkCycle.png"
+dest_files=[ "res://.import/WalkCycle.png-0caa485296d01a5f4f2f09f72b79e56d.s3tc.stex", "res://.import/WalkCycle.png-0caa485296d01a5f4f2f09f72b79e56d.etc2.stex" ]
 
 [params]
 

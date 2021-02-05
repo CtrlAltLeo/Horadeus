@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/2_Walkcyclessheet.png-4ddb6ad7a4fae024a378e69b26891d3b.stex"
+path="res://.import/2_Walkcyclessheet.png-c2267941a99b693a24d5411e155b1016.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameAssets/2_Walkcyclessheet.png"
-dest_files=[ "res://.import/2_Walkcyclessheet.png-4ddb6ad7a4fae024a378e69b26891d3b.stex" ]
+source_file="res://GameAssets/NPC Sprites/2_Walkcyclessheet.png"
+dest_files=[ "res://.import/2_Walkcyclessheet.png-c2267941a99b693a24d5411e155b1016.stex" ]
 
 [params]
 
