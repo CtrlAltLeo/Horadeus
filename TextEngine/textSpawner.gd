@@ -10,7 +10,7 @@ var newBox = load("res://TextEngine/diobox.tscn")
 
 
 
-func addNew(textArray,ends,choices,rSprite,lSprite):
+func addNew(textArray:Array = ["OI! No text"],ends:Array = [],choices:Array = [],rSprite:String = "",lSprite:String = ""):
 	var box = newBox.instance()
 	box.text = textArray
 	box.ends = ends

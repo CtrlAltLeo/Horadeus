@@ -6,7 +6,9 @@ onready var cam = $cameraRoot/Camera
 
 
 
-
+func _ready():
+	
+	$textSpawner.addNew(["Zed","One","Two","Three"])
 
 
 func _input(event):
@@ -62,3 +64,4 @@ func updateSprite():
 	
 	
 	
+
