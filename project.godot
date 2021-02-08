@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="Horadeus"
 config/icon="res://icon.png"
 
+[autoload]
+
+CreateNewTextBox="*res://TextEngine/createNewTextBox.gd"
+
 [input]
 
 leftMouse={

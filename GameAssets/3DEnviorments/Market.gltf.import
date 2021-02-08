@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Market.gltf-529991d089b79ddf1324e681f464bb19.scn"
+path="res://.import/Market.gltf-4dd22373738df71d991050e0f44351c5.scn"
 
 [deps]
 
-source_file="res://3DEnviorments/Market.gltf"
-dest_files=[ "res://.import/Market.gltf-529991d089b79ddf1324e681f464bb19.scn" ]
+source_file="res://GameAssets/3DEnviorments/Market.gltf"
+dest_files=[ "res://.import/Market.gltf-4dd22373738df71d991050e0f44351c5.scn" ]
 
 [params]
 

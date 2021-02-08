@@ -20,16 +20,25 @@ var canSee = 0
 onready var canSeeTimer = $canSeeTimer
 
 #All lines of text that will terminate the box
+#You'll need to put stuff here
 var ends = [2,3]
 
 #If active is a choice
 var isAChoice = false
 
+#DOn't put anything in this ARRAY!@!!
 var choiceTriggers = []
 
 #The actual Choice Text
 #Choice Format When It Triggers:How Many there are:ChoiceText1-X:Corrisponding Choice Destination
 var choices = ["1:2:Choice one:Choice 2:2:3"]
+
+onready var leftSprite = $leftSprite
+onready var rightSprite = $rightSprite
+
+var lSpriteTex = ""
+var rSpriteTex = ""
+
 
 func _ready():
 	
@@ -38,6 +47,11 @@ func _ready():
 	
 	textBoxText.text = text[active]
 	canSeeTimer.start()
+	
+	if lSpriteTex != "" and rSpriteTex != "":
+		
+		leftSprite.texture = load(lSpriteTex)
+		rightSprite.texture = load(rSpriteTex)
 	
 	
 	
@@ -73,10 +87,12 @@ func checkActiveAgainstEnd():
 
 func nextPage():
 	
+	emit_signal("nextPage",active)
+	
 	canSee = 0
 	endOfLine = false
 	active += 1
-	emit_signal("nextPage",active)
+	
 	textBoxText.text = text[active]
 	canSeeTimer.start()
 	
@@ -98,9 +114,9 @@ func _on_clickableObject_clicked():
 		
 func initChoices():
 	for i in choices:
-		print(i)
+		#print(i)
 		var choiceStaging = i.split(":")
-		print(choiceStaging[0])
+		#print(choiceStaging[0])
 		choiceTriggers.append(choiceStaging[0])
 		
 func checkIfChoice():
@@ -138,9 +154,8 @@ func setupChoiceBoxes():
 		nBox.connect("clicked",self, "FlipToPage")
 		
 		if i < 3:
-			nBox.position = Vector2(600, 388 + (i * 75))
-		else:
-			nBox.position = Vector2(875, 388 +( abs(i/2) * 75 ))
+			nBox.position = Vector2(890, 440 + (i * 75))
+		
 		
 		$Choices.add_child(nBox)
 		
