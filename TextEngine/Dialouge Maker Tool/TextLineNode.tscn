@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://TextEngine/Dialouge Maker Tool/TextLineNode.gd" type="Script" id=1]
+
+[node name="newTextInstance" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = -87.9857
+margin_top = -42.6127
+margin_right = 92.0143
+margin_bottom = 49.3873
+wrap_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="addText" type="Button" parent="TextEdit"]
+margin_left = 11.7932
+margin_top = 71.7933
+margin_right = 79.7932
+margin_bottom = 91.7933
+text = "Add Text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="addChoice" type="Button" parent="TextEdit"]
+margin_left = 93.0277
+margin_top = 71.6554
+margin_right = 177.028
+margin_bottom = 91.6554
+text = "Add Choice"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 93.7821
+margin_top = 28.8869
+margin_right = 110.782
+margin_bottom = 48.8869
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_changed" from="TextEdit" to="." method="_on_TextEdit_text_changed"]
+[connection signal="pressed" from="TextEdit/addText" to="." method="_on_addText_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
