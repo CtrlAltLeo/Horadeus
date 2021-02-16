@@ -5,6 +5,8 @@ var totalTexts = 0
 
 var textOutput = []
 
+var choicesOutput = []
+
 var newChoiceBox = load("res://TextEngine/Dialouge Maker Tool/TextLineNode.tscn")
 
 func _input(event):

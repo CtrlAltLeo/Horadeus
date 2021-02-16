@@ -1,6 +1,6 @@
 extends AnimatedSprite3D
 
-onready var TargetPos = get_parent().get_child(1).translation
+onready var TargetPos = get_parent().get_node("player").translation
 
 var NW = Vector3(-1,0,-1)
 

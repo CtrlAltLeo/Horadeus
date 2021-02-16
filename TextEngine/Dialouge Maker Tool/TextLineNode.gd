@@ -10,6 +10,16 @@ onready var myText = $TextEdit.text
 
 func _ready():
 	root.textOutput.append("")
+	
+	
+	$OptionButton.add_item("one choice",0)
+	
+	$OptionButton.add_item("Two Choices",1)
+	
+	$OptionButton.add_item("Three Choices",2)
+	
+	
+	$OptionButton.add_item("delete choices",3)
 
 
 func _on_addText_pressed():
@@ -39,3 +49,22 @@ func _on_Button_pressed():
 	root.textOutput.remove(id)
 	root.totalTexts -= 1
 	self.queue_free()
+
+
+func _on_OptionButton_item_selected(id):
+	var newB = load("res://TextEngine/Dialouge Maker Tool/choiceInstance.tscn")
+	
+	if id != 3:
+	
+		for i in id:
+			var b = newB.instance()
+			
+			b.position.x += 100
+			b.position.y -= 200
+			b.position.y += i * 50
+			
+			self.add_child(b)
+			
+		
+		
+		

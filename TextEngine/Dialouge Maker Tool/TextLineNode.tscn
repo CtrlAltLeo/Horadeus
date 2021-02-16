@@ -3,6 +3,7 @@
 [ext_resource path="res://TextEngine/Dialouge Maker Tool/TextLineNode.gd" type="Script" id=1]
 
 [node name="newTextInstance" type="Node2D"]
+position = Vector2( 0, -0.902496 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -19,21 +20,11 @@ __meta__ = {
 }
 
 [node name="addText" type="Button" parent="TextEdit"]
-margin_left = 11.7932
-margin_top = 71.7933
-margin_right = 79.7932
-margin_bottom = 91.7933
+margin_left = 1.55478
+margin_top = 68.3805
+margin_right = 69.5548
+margin_bottom = 88.3805
 text = "Add Text"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="addChoice" type="Button" parent="TextEdit"]
-margin_left = 93.0277
-margin_top = 71.6554
-margin_right = 177.028
-margin_bottom = 91.6554
-text = "Add Choice"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -47,6 +38,17 @@ text = "-"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_left = -14.4496
+margin_top = 26.0
+margin_right = 86.5504
+margin_bottom = 46.0
+text = "Add Choice"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="text_changed" from="TextEdit" to="." method="_on_TextEdit_text_changed"]
 [connection signal="pressed" from="TextEdit/addText" to="." method="_on_addText_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
