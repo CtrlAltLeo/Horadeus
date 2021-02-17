@@ -7,6 +7,10 @@ var textOutput = []
 
 var choicesOutput = []
 
+var ends = []
+
+var methodOutput = []
+
 var newChoiceBox = load("res://TextEngine/Dialouge Maker Tool/TextLineNode.tscn")
 
 func _input(event):
@@ -32,7 +36,13 @@ func _on_newText_pressed():
 
 
 func _on_compile_pressed():
-	print(textOutput)
+	methodOutput.clear()
+	
+	methodOutput.append(textOutput)
+	methodOutput.append(choicesOutput)
+	methodOutput.append(ends)
+	
+	print(methodOutput)
 
 	
 

@@ -31,7 +31,7 @@ var choiceTriggers = []
 
 #The actual Choice Text
 #Choice Format When It Triggers:How Many there are:ChoiceText1-X:Corrisponding Choice Destination
-var choices = ["1:2:Choice one:Choice 2:2:3"]
+var choices = ["0:2:no:yes:2:2"]
 
 onready var leftSprite = $leftSprite
 onready var rightSprite = $rightSprite

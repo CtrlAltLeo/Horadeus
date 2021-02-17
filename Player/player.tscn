@@ -87,7 +87,7 @@ animations = [ {
 "frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
 "loop": true,
 "name": "back",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
 "loop": true,
@@ -99,10 +99,11 @@ animations = [ {
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.228877, 0 )
 shape = SubResource( 1 )
 
 [node name="cameraRoot" type="Spatial" parent="."]
-transform = Transform( -1, 9.91316e-08, -3.10396e-07, 0, 0.952598, 0.304233, 3.25841e-07, 0.304233, -0.952598, 0, 0, 0 )
+transform = Transform( -1, -2.09447e-07, 2.49609e-07, 0, 0.766045, 0.642788, -3.25841e-07, 0.642788, -0.766045, 0, 0, 0 )
 
 [node name="Camera" type="Camera" parent="cameraRoot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54147, 6.11487 )
@@ -112,4 +113,4 @@ transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0.3, 0, 0 )
 billboard = 2
 frames = SubResource( 20 )
 animation = "back"
-frame = 2
+frame = 1

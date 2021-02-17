@@ -5,9 +5,6 @@
 [node name="newTextInstance" type="Node2D"]
 position = Vector2( 0, -0.902496 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="TextEdit" type="TextEdit" parent="."]
 margin_left = -87.9857
@@ -48,7 +45,29 @@ text = "Add Choice"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_left = 64.6639
+margin_top = -71.25
+margin_right = 88.6639
+margin_bottom = -47.25
+text = "end?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="compileCHoice" type="Button" parent="."]
+margin_left = -59.3589
+margin_top = 51.6772
+margin_right = 52.6411
+margin_bottom = 71.6772
+text = "Compile Choice"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="text_changed" from="TextEdit" to="." method="_on_TextEdit_text_changed"]
 [connection signal="pressed" from="TextEdit/addText" to="." method="_on_addText_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
+[connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]
+[connection signal="pressed" from="compileCHoice" to="." method="_on_compileCHoice_pressed"]

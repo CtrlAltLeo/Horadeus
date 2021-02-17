@@ -33,7 +33,7 @@ func _input(event):
 		if camRoot.rotation_degrees.y < 0:
 			camRoot.rotation_degrees.y = 360
 		
-		if camRoot.rotation_degrees.x - event.relative.y > -75 and camRoot.rotation_degrees.x - event.relative.y < 10:
+		if camRoot.rotation_degrees.x - event.relative.y > -70 and camRoot.rotation_degrees.x - event.relative.y < 10:
 			camRoot.rotation_degrees.x -= event.relative.y * mouseSense
 			
 			
@@ -54,12 +54,26 @@ func _physics_process(delta):
 	movement.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	
 	movement = movement.rotated(Vector3(0,1,0),self.rotation.y)
-#
-#	movement.y = y_velo
-#
-#	y_velo = -10
+
+	movement = movement * speed
+
+	movement.y = y_velo
+
 	
-	move_and_slide(movement * speed)
+	move_and_slide(movement,Vector3(0,1,0))
+	
+	y_velo -= Gravity
+	
+	if y_velo < -30:
+		y_velo = -30
+	
+	if is_on_floor():
+		y_velo = -1
+	
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		y_velo = 200
+		
+		
 	
 	
 	

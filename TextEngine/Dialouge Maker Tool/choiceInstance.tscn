@@ -2,7 +2,9 @@
 
 [ext_resource path="res://TextEngine/Dialouge Maker Tool/choiceInstance.gd" type="Script" id=1]
 
-[node name="choiceInstance" type="Node2D"]
+[node name="choiceInstance" type="Node2D" groups=[
+"choice",
+]]
 position = Vector2( 1.13759, -1.70641 )
 script = ExtResource( 1 )
 
@@ -25,3 +27,5 @@ text = "Add Text"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="text_changed" from="TextEdit" to="." method="_on_TextEdit_text_changed"]
+[connection signal="pressed" from="add text" to="." method="_on_add_text_pressed"]
