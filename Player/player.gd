@@ -8,7 +8,12 @@ onready var cam = $cameraRoot/Camera
 
 var y_velo = 0
 
-var speed = 10
+var topSpeed = 20
+var startSpeed = 1
+var speedLevel = 1.05
+
+var speed = 1
+
 
 const Gravity = 40
 
@@ -25,19 +30,25 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		
 		#@camRoot.rotation_degrees.y -= event.relative.x * mouseSense
+		#this rotates teh player, not the camera y
 		self.rotation_degrees.y -= event.relative.x * mouseSense
 		
+		
+		#This code will keep the rotation degreese within 360
 		if camRoot.rotation_degrees.y > 360:
 			camRoot.rotation_degrees.y = 0
-		
 		if camRoot.rotation_degrees.y < 0:
 			camRoot.rotation_degrees.y = 360
-		
+
+		#this will make sure you can't go over the player with your camera, and remain behind		
 		if camRoot.rotation_degrees.x - event.relative.y > -70 and camRoot.rotation_degrees.x - event.relative.y < 10:
 			camRoot.rotation_degrees.x -= event.relative.y * mouseSense
 			
 			
 func _process(delta):
+	
+	if Input.is_action_just_pressed("leftMouse"):
+		ThrowACrystal.throwCrystal()
 	
 	#updateSprite()
 	
@@ -49,18 +60,29 @@ func _physics_process(delta):
 	
 	var movement = Vector3()
 	
-	movement.z = Input.get_action_strength("back") - Input.get_action_strength("forward")
+	movement.z = Input.get_action_strength("forward") - Input.get_action_strength("back")
 	
-	movement.x = Input.get_action_strength("right") - Input.get_action_strength("left")
+	movement.x = Input.get_action_strength("left") - Input.get_action_strength("right")
+	
+	if movement.z == 0 and movement.x == 0:
+		speed = 1
+		
+	
 	
 	movement = movement.rotated(Vector3(0,1,0),self.rotation.y)
 
 	movement = movement * speed
+	
+	if speed < topSpeed:
+		speed = speed * speedLevel
+	
 
 	movement.y = y_velo
 
 	
 	move_and_slide(movement,Vector3(0,1,0))
+	
+	
 	
 	y_velo -= Gravity
 	

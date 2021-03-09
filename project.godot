@@ -20,7 +20,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-CreateNewTextBox="*res://TextEngine/createNewTextBox.gd"
+CreateNewTextBox="res://TextEngine/createNewTextBox.gd"
+ThrowACrystal="*res://Player/CrystalThrowing/ThrowACrystal.gd"
+Globals="*res://globals.gd"
 
 [input]
 
