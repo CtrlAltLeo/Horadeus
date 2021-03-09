@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0.0253165, 0 ), 0.0, 2.15455, 0, 0, Vector2( 0.189873, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -0.918605, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+trail_divisor = 8
+emission_shape = 1
+emission_sphere_radius = 1.4
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+angular_velocity = 40.0
+angular_velocity_random = 1.0
+linear_accel = 4.0
+linear_accel_random = 1.0
+angle = 360.0
+angle_random = 1.0
+scale_random = 0.8
+scale_curve = SubResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 1, 0.168627, 0.00392157, 1 )
+
+[sub_resource type="QuadMesh" id=5]
+material = SubResource( 4 )
+
+[node name="Fire Effect" type="Spatial"]
+
+[node name="Particles" type="Particles" parent="."]
+layers = 2147483649
+amount = 250
+lifetime = 0.8
+randomness = 1.0
+local_coords = false
+draw_order = 2
+process_material = SubResource( 3 )
+draw_pass_1 = SubResource( 5 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+light_color = Color( 1, 0.470588, 0, 1 )

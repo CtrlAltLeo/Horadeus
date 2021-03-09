@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://TextEngine/Dialouge Maker Tool/choiceInstance.gd" type="Script" id=1]
+
+[node name="choiceInstance" type="Node2D" groups=[
+"choice",
+]]
+position = Vector2( 1.13759, -1.70641 )
+script = ExtResource( 1 )
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = -75.0
+margin_top = -27.3392
+margin_right = 72.0
+margin_bottom = 34.6608
+wrap_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="add text" type="Button" parent="."]
+margin_left = -36.1785
+margin_top = 37.2938
+margin_right = 31.8215
+margin_bottom = 57.2938
+text = "Add Text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_changed" from="TextEdit" to="." method="_on_TextEdit_text_changed"]
+[connection signal="pressed" from="add text" to="." method="_on_add_text_pressed"]

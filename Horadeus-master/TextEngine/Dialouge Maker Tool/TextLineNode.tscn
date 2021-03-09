@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://TextEngine/Dialouge Maker Tool/TextLineNode.gd" type="Script" id=1]
+
+[node name="newTextInstance" type="Node2D"]
+position = Vector2( 0, -0.902496 )
+script = ExtResource( 1 )
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = -87.9857
+margin_top = -42.6127
+margin_right = 92.0143
+margin_bottom = 49.3873
+wrap_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="addText" type="Button" parent="TextEdit"]
+margin_left = 1.55478
+margin_top = 68.3805
+margin_right = 69.5548
+margin_bottom = 88.3805
+text = "Add Text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 93.7821
+margin_top = 28.8869
+margin_right = 110.782
+margin_bottom = 48.8869
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_left = -14.4496
+margin_top = 26.0
+margin_right = 86.5504
+margin_bottom = 46.0
+text = "Add Choice"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_left = 64.6639
+margin_top = -71.25
+margin_right = 88.6639
+margin_bottom = -47.25
+text = "end?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="compileCHoice" type="Button" parent="."]
+margin_left = -59.3589
+margin_top = 51.6772
+margin_right = 52.6411
+margin_bottom = 71.6772
+text = "Compile Choice"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_changed" from="TextEdit" to="." method="_on_TextEdit_text_changed"]
+[connection signal="pressed" from="TextEdit/addText" to="." method="_on_addText_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
+[connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]
+[connection signal="pressed" from="compileCHoice" to="." method="_on_compileCHoice_pressed"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 2
+emission_box_extents = Vector3( 2, 2, 2 )
+direction = Vector3( 0, 0, 0 )
+spread = 86.52
+gravity = Vector3( 0, 0.1, 0 )
+angular_velocity_random = 0.44
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+flags_unshaded = true
+
+[sub_resource type="CubeMesh" id=3]
+material = SubResource( 2 )
+size = Vector3( 0.01, 0.01, 0.01 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Particles" type="Particles" parent="."]
+amount = 13
+lifetime = 15.81
+preprocess = 1.51
+draw_order = 2
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 3 )

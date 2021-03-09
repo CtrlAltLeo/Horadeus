@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://TextEngine/dioTheme.tres" type="Theme" id=1]
+[ext_resource path="res://TextEngine/TextBox1.png" type="Texture" id=2]
+[ext_resource path="res://TextEngine/diobox.gd" type="Script" id=3]
+[ext_resource path="res://GameAssets/NPC Text Faces/Face.png" type="Texture" id=4]
+[ext_resource path="res://UI/clickableObject.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 265.331, 80.9658 )
+
+[node name="diobox" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="textBox" type="Sprite" parent="."]
+position = Vector2( 350.739, 507.816 )
+scale = Vector2( 0.148935, 0.103047 )
+texture = ExtResource( 2 )
+
+[node name="text" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 98.0
+margin_top = 432.0
+margin_right = 609.0
+margin_bottom = 584.0
+mouse_filter = 2
+theme = ExtResource( 1 )
+visible_characters = 0
+text = "This is the beginning of greatness. With this simple box, a creation, once pure idea, becomes something tangible."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="canSeeTimer" type="Timer" parent="."]
+wait_time = 0.06
+one_shot = true
+
+[node name="clickableObject" parent="." instance=ExtResource( 5 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="clickableObject"]
+position = Vector2( 352.251, 512.113 )
+shape = SubResource( 1 )
+
+[node name="Choices" type="Node2D" parent="."]
+
+[node name="leftSprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 86.4331, 338.165 )
+scale = Vector2( 5, 5 )
+z_index = -1
+texture = ExtResource( 4 )
+
+[node name="rightSprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 601.018, 343.029 )
+scale = Vector2( 5, 5 )
+z_index = -1
+texture = ExtResource( 4 )
+flip_h = true
+[connection signal="timeout" from="canSeeTimer" to="." method="_on_canSeeTimer_timeout"]
+[connection signal="clicked" from="clickableObject" to="." method="_on_clickableObject_clicked"]

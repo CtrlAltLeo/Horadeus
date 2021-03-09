@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://TextEngine/Dialouge Maker Tool/MainTool.gd" type="Script" id=1]
+
+[node name="mainTool" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -509.545
+margin_top = -300.0
+margin_right = 514.455
+margin_bottom = 300.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="scrollable" type="Node2D" parent="."]
+position = Vector2( 500.917, 298 )
+
+[node name="newText" type="Button" parent="scrollable"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -29.8169
+margin_top = -12.2723
+margin_right = 37.1832
+margin_bottom = 14.7277
+text = "new text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="compile" type="Button" parent="."]
+margin_left = 11.0496
+margin_top = 15.9606
+margin_right = 153.05
+margin_bottom = 35.9606
+text = "Generate Text String"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="scrollable/newText" to="." method="_on_newText_pressed"]
+[connection signal="pressed" from="compile" to="." method="_on_compile_pressed"]
