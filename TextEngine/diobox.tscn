@@ -48,12 +48,14 @@ shape = SubResource( 1 )
 [node name="Choices" type="Node2D" parent="."]
 
 [node name="leftSprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( 86.4331, 338.165 )
 scale = Vector2( 5, 5 )
 z_index = -1
 texture = ExtResource( 4 )
 
 [node name="rightSprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( 601.018, 343.029 )
 scale = Vector2( 5, 5 )
 z_index = -1

@@ -1,7 +1,9 @@
 extends Node
 
-signal endBox(active)
-signal nextPage(active)
+var myId = 0
+
+signal endBox(active, id)
+signal nextPage(active, id)
 
 
 #array containing all the text. Set up when a new Diobox is made
@@ -71,7 +73,7 @@ func IsLastLine():
 	if active + 1 < text.size() and !checkActiveAgainstEnd():
 		nextPage()
 	else:
-		emit_signal("endBox", active)
+		emit_signal("endBox", active, myId)
 		self.queue_free()
 
 #loops through all the ends, and will return a True to isLastLine to terminate Text Box
@@ -87,7 +89,7 @@ func checkActiveAgainstEnd():
 
 func nextPage():
 	
-	emit_signal("nextPage",active)
+	emit_signal("nextPage",active, myId)
 	
 	canSee = 0
 	endOfLine = false
@@ -165,7 +167,7 @@ func FlipToPage(page):
 	canSee = 0
 	endOfLine = false
 	active = int(page)
-	emit_signal("nextPage",active)
+	emit_signal("nextPage",active, myId)
 	textBoxText.text = text[active]
 	canSeeTimer.start()
 	

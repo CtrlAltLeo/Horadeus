@@ -1,16 +1,14 @@
 extends AnimatedSprite3D
 
+
 onready var TargetPos = get_parent().get_node("player").translation
 
-var NW = Vector3(-1,0,-1)
 
-var NE = Vector3(1,0,-1)
-
-var SW = Vector3(-1,0,1)
-
-var SE = Vector3(1,0,1)
+export var facing = Vector3(0,0,-1)
 
 var buffer = 5
+
+var vectorToPlayer = Vector3()
 
 #0 is front, 1 is side, 2 is back
 var NPC_Facing = 0
@@ -21,14 +19,15 @@ export var OnlyFront = false
 
 func _ready():
 	
-	
-	print(TargetPos)
+	pass
 	
 	
 		
 func _process(delta):
-	TargetPos = get_parent().get_child(1).translation
-	
+	TargetPos = get_parent().get_node("player").translation
+
+	playerVectorCompare()	
+
 	if not OnlyFront:
 		if TargetPos.z < self.translation.z -buffer and (TargetPos.x > self.translation.x):
 			
@@ -56,6 +55,19 @@ func _process(delta):
 			animation = "side"
 			flip_h = true	
 			
-	if OnlyFront:
+#	if OnlyFront:
+#		self.animation = "front"
+
+func playerVectorCompare():
+	vectorToPlayer = TargetPos - self.translation
+	
+	vectorToPlayer = vectorToPlayer.normalized()
+	
+	#print(vectorToPlayer.normalized().dot(facing.normalized()))
+	
+	if vectorToPlayer.dot(facing) > 0:
+		#print("Font")
 		self.animation = "front"
-			
+	else:
+		self.animation = "back"
+		#print("back")		
