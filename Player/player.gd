@@ -48,7 +48,7 @@ func _input(event):
 func _process(delta):
 	
 	if Input.is_action_just_pressed("leftMouse"):
-		ThrowACrystal.throwCrystal()
+		ThrowACrystal.throwCrystal("fire")
 	
 	#updateSprite()
 	

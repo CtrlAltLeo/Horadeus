@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Horadeus"
+run/main_scene="res://Areas/Neo London/Neo London Park/Neo London Park.tscn"
 config/icon="res://icon.png"
 
 [autoload]
