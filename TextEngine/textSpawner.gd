@@ -1,7 +1,7 @@
 extends Node2D
 
 
-signal endBox(active, id)
+signal endBox( id)
 signal nextPage(active, id)
 
 
@@ -23,8 +23,8 @@ func addNew(id,textArray:Array = ["OI! No text"],choices:Array = [],ends:Array =
 	
 	self.add_child(box)
 	
-func endOfABox(active, id):
-	emit_signal("endBox",active, id)
+func endOfABox( id):
+	emit_signal("endBox", id)
 	print(id," End of box")
 	
 	

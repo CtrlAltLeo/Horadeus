@@ -2,7 +2,7 @@ extends KinematicBody
 
 onready var root = Globals.root
 
-var type = "fire"
+var type = ""
 
 var dir = Vector3(0,0,1)
 

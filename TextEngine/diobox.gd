@@ -2,7 +2,7 @@ extends Node
 
 var myId = 0
 
-signal endBox(active, id)
+signal endBox(id)
 signal nextPage(active, id)
 
 
@@ -73,7 +73,7 @@ func IsLastLine():
 	if active + 1 < text.size() and !checkActiveAgainstEnd():
 		nextPage()
 	else:
-		emit_signal("endBox", active, myId)
+		emit_signal("endBox", myId)
 		self.queue_free()
 
 #loops through all the ends, and will return a True to isLastLine to terminate Text Box

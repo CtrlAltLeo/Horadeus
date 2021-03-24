@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/HUD/fillerHUDSlots.png" type="Texture" id=1]
+
+[node name="box" type="Sprite"]
+scale = Vector2( 10, 10 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 8, 8 )
+
+[node name="item" type="Sprite" parent="."]
+region_rect = Rect2( 8, 0, 8, 8 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 0.71
+margin_left = -2.06549
+margin_top = -6.60927
+margin_right = 16.2545
+margin_bottom = 7.39073
+rect_scale = Vector2( 0.2, 0.2 )
+text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
