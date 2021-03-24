@@ -25,8 +25,10 @@ func _on_NPCONE_Interact_clicked():
 
 
 func _on_textSpawner_nextPage(active, id):
-	print(id)
+	pass
 
 
-func _on_textSpawner_endBox(active, id):
-	print(id," dang")
+func _on_textSpawner_endBox(id):
+	if id == 0:
+		Globals.playerInventory.addInventoryItem(Globals.allItems["crystals"]["fire"])
+		

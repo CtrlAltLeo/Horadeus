@@ -8,15 +8,17 @@ onready var cam = $cameraRoot/Camera
 
 var y_velo = 0
 
-var topSpeed = 20
-var startSpeed = 1
-var speedLevel = 1.05
+var topSpeed = 12
+var startSpeed = 4
+var speedLevel = 1.08
 
 var speed = 1
 
 
 const Gravity = 40
 
+var throwables = []
+var activeItem = -1
 
 
 func _ready():
@@ -47,8 +49,19 @@ func _input(event):
 			
 func _process(delta):
 	
-	if Input.is_action_just_pressed("leftMouse"):
-		ThrowACrystal.throwCrystal("fire")
+	if Input.is_action_just_pressed("weapons"):
+		if $Inventory.readyToAttack == true:
+			$Inventory.hideInventory()
+		else:
+			$Inventory.readyInventory()
+	
+	#This updates the thrown Crystal to be accurate to the Inventory
+	activeItem = $Inventory.active
+	throwables = $Inventory.inventoryContents
+	
+	if Input.is_action_just_pressed("leftMouse") and $Inventory.readyToAttack == true and throwables[activeItem] != "":
+		ThrowACrystal.throwCrystal(throwables[activeItem]) #Throwables is array, activeITme is the
+															#Selected item
 	
 	#updateSprite()
 	
