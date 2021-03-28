@@ -14,6 +14,8 @@ onready var boxObjects = $AllItems
 func _ready():
 	init_Boxes()
 	
+	hideInventory()
+	
 	addInventoryItem(allItems["crystals"]["ice"])
 	
 	
@@ -87,9 +89,9 @@ func addInventoryItem(object):
 		print(inventoryContents[nextItem ])
 
 	
-func ClearInventorySlot(slot):
+func clearInventorySlot(slot):
 	boxObjects.get_child(slot - 1).get_child(0).texture = null
-	
+	inventoryContents.remove(slot - 1)
 	
 	
 func emptyInventory():

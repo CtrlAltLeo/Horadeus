@@ -6,6 +6,8 @@ onready var camRoot = $cameraRoot
 onready var sprite = $sprite
 onready var cam = $cameraRoot/Camera
 
+var interactMode = true
+
 var y_velo = 0
 
 var topSpeed = 12
@@ -22,7 +24,7 @@ var activeItem = -1
 
 
 func _ready():
-	pass
+	$cameraRoot.rotation_degrees.y = 180
 	
 	
 
@@ -32,10 +34,13 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		
 		#@camRoot.rotation_degrees.y -= event.relative.x * mouseSense
+	
 		#this rotates teh player, not the camera y
 		self.rotation_degrees.y -= event.relative.x * mouseSense
 		
+			
 		
+			
 		#This code will keep the rotation degreese within 360
 		if camRoot.rotation_degrees.y > 360:
 			camRoot.rotation_degrees.y = 0
@@ -50,16 +55,18 @@ func _input(event):
 func _process(delta):
 	
 	if Input.is_action_just_pressed("weapons"):
-		if $Inventory.readyToAttack == true:
-			$Inventory.hideInventory()
-		else:
+		if interactMode == true:
 			$Inventory.readyInventory()
+			interactMode = false
+		else:
+			$Inventory.hideInventory()
+			interactMode = true
 	
 	#This updates the thrown Crystal to be accurate to the Inventory
 	activeItem = $Inventory.active
 	throwables = $Inventory.inventoryContents
 	
-	if Input.is_action_just_pressed("leftMouse") and $Inventory.readyToAttack == true and throwables[activeItem] != "":
+	if Input.is_action_just_pressed("leftMouse") and interactMode == false and throwables[activeItem] != null:
 		ThrowACrystal.throwCrystal(throwables[activeItem]) #Throwables is array, activeITme is the
 															#Selected item
 	
@@ -82,7 +89,7 @@ func _physics_process(delta):
 		
 	
 	
-	movement = movement.rotated(Vector3(0,1,0),self.rotation.y)
+	movement = movement.rotated(Vector3(0,1,0), self.rotation.y)
 
 	movement = movement * speed
 	
@@ -120,8 +127,13 @@ func animate():
 	
 	if forward:
 		$sprite.playing = true
+		
+		
 	else:
 		$sprite.playing = false
+		
+	
+	
 	
 	
 	

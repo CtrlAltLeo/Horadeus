@@ -17,7 +17,7 @@ func _ready():
 
 
 func _on_NPCONE_Interact_clicked():
-	$textSpawner.addNew(0, ["Daaaaang this is a great demo", "Isn't Leo the best programmer ever?"])
+	$textSpawner.addNew(0,["Testing, one two!", "Does it work?", "Awesome!", "Yep, it does!"], ["1:2:Sure does!:I hope so!:2:3"], [2, 3])
 
 
 
@@ -30,5 +30,5 @@ func _on_textSpawner_nextPage(active, id):
 
 func _on_textSpawner_endBox(id):
 	if id == 0:
-		Globals.playerInventory.addInventoryItem(Globals.allItems["crystals"]["fire"])
+		Globals.playerInventory.clearInventorySlot(1)
 		
