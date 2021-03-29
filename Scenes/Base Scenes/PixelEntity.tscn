@@ -37,7 +37,7 @@ tracks/0/keys = {
 "values": [ 0, 5 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 resource_name = "left_walk"
 length = 0.6
 loop = true
@@ -54,7 +54,7 @@ tracks/0/keys = {
 "values": [ 18, 23 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "right_walk"
 length = 0.6
 loop = true
@@ -75,15 +75,67 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-billboard = 1
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shaded = true
+alpha_cut = 2
 texture = ExtResource( 1 )
 vframes = 5
 hframes = 6
-frame = 5
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "front_walk"
 anims/back_walk = SubResource( 1 )
 anims/front_walk = SubResource( 2 )
-anims/left_walk = SubResource( 3 )
-anims/right_walk = SubResource( 4 )
+anims/left_walk = SubResource( 4 )
+anims/right_walk = SubResource( 3 )
+
+[node name="DeleteMe" type="Spatial" parent="."]
+
+[node name="CSGBox" type="CSGBox" parent="DeleteMe"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.251768, 0 )
+width = 1.29004
+height = 0.224727
+depth = 83.7896
+
+[node name="BlueLight" type="OmniLight" parent="DeleteMe"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.445381, 0.245228, -0.646428 )
+light_color = Color( 0, 0.901961, 1, 1 )
+light_energy = 1.17
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_contact = 0.01
+shadow_reverse_cull_face = true
+omni_range = 1.7
+omni_attenuation = 4.92458
+
+[node name="RedLight" type="OmniLight" parent="DeleteMe"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.359129, 0.245228, 0.457674 )
+light_color = Color( 1, 0, 0, 1 )
+light_energy = 1.17
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_contact = 0.01
+omni_range = 1.7
+omni_attenuation = 4.92458
+
+[node name="CameraDolly" type="Spatial" parent="DeleteMe"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Camera" type="Camera" parent="DeleteMe/CameraDolly"]
+transform = Transform( 1, 0, 0, 0, 0.823869, 0.56678, 0, -0.56678, 0.823869, 0, 0.57778, 0.723037 )
+current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="DeleteMe"]
+
+[node name="Label" type="Label" parent="DeleteMe/CanvasLayer"]
+margin_left = 15.0
+margin_top = 14.0
+margin_right = 161.0
+margin_bottom = 39.0
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

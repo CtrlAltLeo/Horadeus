@@ -25,6 +25,10 @@ CreateNewTextBox="res://TextEngine/createNewTextBox.gd"
 ThrowACrystal="*res://Player/CrystalThrowing/ThrowACrystal.gd"
 Globals="*res://globals.gd"
 
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
 [input]
 
 leftMouse={
