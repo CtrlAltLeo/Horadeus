@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Tools/DebugForward/m_DebugForward.tres" type="Material" id=1]
+[ext_resource path="res://Scenes/Tools/DebugForward/DebugForward.gd" type="Script" id=2]
+
+[node name="DebugForward" type="Spatial"]
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": "Visual representation of which way the entity is facing"
+}
+
+[node name="CSGCylinder" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, -0.1 )
+radius = 0.005
+height = 0.2
+material = ExtResource( 1 )
+
+[node name="CSGPolygon" type="CSGPolygon" parent="CSGCylinder"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.025, -0.15, 0.00451945 )
+polygon = PoolVector2Array( 0.25, 0, 0, 0.5, 0.5, 0.5, 0.25, 0 )
+depth = 0.1
+material = ExtResource( 1 )

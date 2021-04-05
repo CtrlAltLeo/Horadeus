@@ -3,7 +3,7 @@ extends Node
 #Nice globals, good Globals.....
 onready var root = get_tree().current_scene
 
-onready var playerInventory = root.get_node("player").get_node("Inventory")
+#onready var playerInventory = root.get_node("player").get_node("Inventory")
 
 var allItems = {
 	
