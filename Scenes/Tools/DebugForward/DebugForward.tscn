@@ -5,6 +5,9 @@
 
 [node name="DebugForward" type="Spatial"]
 script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": "Visual representation of which way the entity is facing"
+}
 
 [node name="CSGCylinder" type="CSGCylinder" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, -0.1 )

@@ -1,7 +1,7 @@
 extends Spatial
 
-export var _show_in_game := false
+export var _editor_only := true
 
 func _ready():
-	if !_show_in_game:
+	if _editor_only:
 		queue_free()

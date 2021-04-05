@@ -12,7 +12,6 @@ var _has_two_front_animations := false
 
 func _ready():
 	if get_viewport().get_camera() ==  null: print("No 3D camera found in SpriteEntity.gd::_ready(); The class will not behave properly without a camera.")
-	
 	# Determine if the animation has two front animations (frontleft and frontright)
 	for animation in animation_player.get_animation_list():
 		if animation.find("frontleft") != -1: 
@@ -68,13 +67,21 @@ func _get_billboard_degrees() -> float:
 	var camera_to_entity_local = entity_root.global_transform.basis.xform_inv(current_camera.global_transform.origin - entity_root.translation)
 	var degrees = rad2deg(Vector2(camera_to_entity_local.x, camera_to_entity_local.z).angle_to(Vector2(0.0, -1.0)))
 	
-	if billboard_mode == BillboardMode.Y_Billboard_Ease:
-		pass # TODO: add Y Billboard with Ease
-	elif billboard_mode == BillboardMode.Snap:
-		degrees = 90.0*floor((degrees+45.0)/90.0)
-	elif billboard_mode == BillboardMode.Snap_Ease:
-		degrees = ((degrees+(90.0*floor((degrees+45.0)/90.0)))/2.0)
-	elif billboard_mode == BillboardMode.Negated_Y_Billboard:
-		degrees *= -1.0
-	
-	return degrees
+	match billboard_mode:
+		BillboardMode.Y_Billboard_Ease:
+			var start_ease_at = 40.0
+			var clamped_angle_90 = 90.0*floor((degrees+45.0)/90.0)
+			var degrees_from_clamped_value = clamped_angle_90 - degrees
+			var ease_strength = (degrees_from_clamped_value/(45.0-start_ease_at)) - (start_ease_at/(45.0-start_ease_at))*(1.0 if degrees_from_clamped_value >= 0.0 else -1.0)
+			return clamped_angle_90 if abs(degrees_from_clamped_value) <= start_ease_at else clamped_angle_90 - (45.0*ease_strength)
+		BillboardMode.Y_Billboard:
+			return degrees
+		BillboardMode.Snap:
+			return 90.0*floor((degrees+45.0)/90.0)
+		BillboardMode.Snap_Ease:
+			return (degrees+(90.0*floor((degrees+45.0)/90.0)))/2.0
+		BillboardMode.Negated_Y_Billboard:
+			return -degrees
+		var invalid_mode:
+			print("Invalid billboard_mode in " + entity_root.name + ": " + str(invalid_mode))
+			return degrees
